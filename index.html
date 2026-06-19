@@ -699,6 +699,20 @@
       .baby-cartoon { width: 160px; height: 160px; }
       .feature-photo { height: 400px; }
     }
+
+    /* Hide navbar brand on mobile to prevent overlap */
+@media (max-width: 768px) {
+  .navbar-brand {
+    display: none !important;
+  }
+  
+  /* Optional: Make nav links smaller on mobile for more space */
+  .nav-link {
+    font-size: 0.85rem !important;
+    margin: 0 0.2rem !important;
+    letter-spacing: 1px !important;
+  }
+}
   </style>
 </head>
 <body>
