@@ -703,7 +703,7 @@
     /* Hide navbar brand on mobile to prevent overlap */
 @media (max-width: 768px) {
   .navbar-brand {
-    display: none !important;
+    /* display: none !important; */
   }
   
   /* Optional: Make nav links smaller on mobile for more space */
@@ -712,6 +712,306 @@
     margin: 0 0.2rem !important;
     letter-spacing: 1px !important;
   }
+}
+
+/* Add this to your existing CSS - specifically for mobile */
+
+@media (max-width: 768px) {
+  /* Prevent ANY horizontal scroll */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+  }
+  
+  /* Fix hero section */
+  .hero-section {
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow: hidden !important;
+  }
+  
+  .hero-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 6rem 0.5rem 3rem !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Fix hero title - reduce the vw scaling */
+  .hero-title {
+    font-size: clamp(2.5rem, 12vw, 4rem) !important;
+    width: 100% !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  
+  /* Fix subtitle */
+  .hero-subtitle {
+    font-size: clamp(1rem, 4vw, 1.5rem) !important;
+    letter-spacing: 5px !important;
+  }
+  
+  /* Fix countdown box */
+  .countdown-box {
+    width: 95% !important;
+    max-width: 350px !important;
+    padding: 1rem 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+  
+  .countdown-number {
+    font-size: 1.6rem !important;
+    min-width: 40px !important;
+  }
+  
+  .countdown-label {
+    font-size: 0.6rem !important;
+    letter-spacing: 2px !important;
+  }
+  
+  /* Fix hero details */
+  .hero-details {
+    font-size: 1rem !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  /* Fix hero eyebrow */
+  .hero-eyebrow {
+    font-size: 0.75rem !important;
+    letter-spacing: 4px !important;
+  }
+  
+  /* Fix hero divider */
+  .hero-divider {
+    width: 100px !important;
+  }
+  
+  /* Fix scroll indicator */
+  .scroll-indicator {
+    font-size: 0.7rem !important;
+  }
+  
+  /* Ensure all containers are constrained */
+  .container {
+    max-width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  
+  /* Fix any Bootstrap rows/cols */
+  .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Fix navbar on mobile */
+  .navbar {
+    padding: 0.8rem 0 !important;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem !important;
+  }
+  
+  .nav-link {
+    font-size: 0.8rem !important;
+    margin: 0 0.15rem !important;
+  }
+  
+  /* Fix cards */
+  .card-elegant {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Fix images */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  .feature-photo {
+    height: 300px !important;
+  }
+  
+  .gallery-img {
+    height: 250px !important;
+  }
+  
+  .baby-cartoon {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  
+  /* Fix buttons */
+  .btn-elegant {
+    padding: 0.8rem 2rem !important;
+    font-size: 0.8rem !important;
+  }
+  
+  /* Fix badges */
+  .badge-elegant {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+  
+  /* Fix section titles */
+  .section-title {
+    font-size: clamp(2rem, 8vw, 3rem) !important;
+  }
+  
+  .section-eyebrow {
+    font-size: 0.8rem !important;
+    letter-spacing: 4px !important;
+  }
+  
+  /* Fix timeline cards */
+  .timeline-card {
+    padding: 1.2rem 1rem !important;
+  }
+  
+  .timeline-card strong {
+    font-size: 1.1rem !important;
+  }
+  
+  /* Fix menu */
+  .menu-category {
+    font-size: 1.3rem !important;
+  }
+  
+  .menu-item {
+    font-size: 1rem !important;
+  }
+  
+  /* Fix quote */
+  .quote-block {
+    font-size: 1.2rem !important;
+    padding: 1rem !important;
+  }
+  
+  /* Fix footer */
+  .footer {
+    padding: 2rem 1rem !important;
+  }
+  
+  .footer p {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Extra small phones (iPhone SE, etc.) */
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 2.2rem !important;
+  }
+  
+  .countdown-box {
+    padding: 0.8rem 0.3rem !important;
+  }
+  
+  .countdown-number {
+    font-size: 1.4rem !important;
+    min-width: 35px !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem !important;
+    letter-spacing: 3px !important;
+  }
+}
+
+/* Add this to your CSS - fixes the countdown overflow on mobile */
+
+@media (max-width: 768px) {
+  /* Make countdown box fit the screen */
+  .countdown-box {
+    width: 92% !important;
+    max-width: 320px !important;
+    padding: 1rem 0.8rem !important;
+    margin-top: 1.5rem !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Make the row wrap into 2 lines */
+  .countdown-box .row {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 0 !important;
+  }
+  
+  /* Each time unit gets 50% width (2 per row) */
+  .countdown-box .col-auto {
+    width: 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    padding: 0.3rem 0 !important;
+  }
+  
+  /* Hide the dot separators on mobile - they take up space */
+  .countdown-sep {
+    display: none !important;
+  }
+  
+  /* Smaller numbers */
+  .countdown-number {
+    font-size: 1.8rem !important;
+    min-width: auto !important;
+    display: block !important;
+  }
+  
+  /* Labels stay readable */
+  .countdown-label {
+    font-size: 0.65rem !important;
+    letter-spacing: 2px !important;
+    display: block !important;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 375px) {
+  .countdown-box {
+    max-width: 280px !important;
+    padding: 0.8rem 0.5rem !important;
+  }
+  
+  .countdown-number {
+    font-size: 1.5rem !important;
+  }
+  
+  .countdown-label {
+    font-size: 0.6rem !important;
+  }
+}
+
+/* DELETE THIS ENTIRE CSS BLOCK */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 1s ease 2s forwards;
+}
+.scroll-indicator span {
+  display: block;
+  font-family: 'Cormorant', serif;
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.scroll-indicator i {
+  color: var(--white);
+  font-size: 1.5rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
 }
   </style>
 </head>
@@ -790,11 +1090,7 @@
       </div>
     </div>
 
-    <!-- SCROLL INDICATOR -->
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <i class="bi bi-chevron-double-down"></i>
-    </div>
+    
   </section>
 
   <!-- QUOTE SECTION -->
