@@ -1093,6 +1093,253 @@
     font-size: 2.5rem;
   }
 }
+
+/* ============ FANCY TIMELINE HEADINGS ============ */
+.timeline-heading {
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  color: var(--red-deep) !important;
+  letter-spacing: 0.5px;
+}
+
+/* ============ BREATHING ANIMATION FOR BADGES ============ */
+.badge-breathing {
+  animation: breathe 2s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes breathe {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+}
+
+/* ============ SPECTACULAR STORY SECTION ============ */
+.story-section-wrapper {
+  position: relative;
+  padding: 6rem 0;
+  margin: 4rem 0;
+  overflow: hidden;
+}
+
+.story-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+.story-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(19, 14, 14, 0.92) 0%,
+    rgba(16, 12, 12, 0.88) 50%,
+    rgba(35, 33, 33, 0.92) 100%
+  );
+  z-index: 1;
+}
+
+.story-main-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 3px solid transparent;
+  border-radius: 30px;
+  padding: 3rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+}
+
+.story-main-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--red-deep), var(--red-bright), var(--red-deep));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.story-main-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 0 0 8px rgba(0, 0, 0, 0.8),
+    0 0 0 12px var(--red-deep),
+    0 40px 100px rgba(0, 0, 0, 0.6);
+}
+
+.story-main-card:hover::before {
+  opacity: 1;
+}
+
+.story-section-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.story-section-subtitle {
+  font-family: 'Cormorant', serif;
+  font-size: 1.1rem;
+  color: var(--red-pale);
+  text-align: center;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+}
+
+.story-divider {
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--red-bright), transparent);
+  margin: 1rem auto 3rem;
+}
+
+/* Dark theme timeline cards */
+.story-timeline-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border-left: 4px solid var(--red-bright);
+  padding: 1.3rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.story-timeline-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(10px);
+  border-left-color: var(--white);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.story-timeline-card .icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: var(--red-bright);
+}
+
+.story-timeline-card strong {
+  font-family: 'Dancing Script', cursive !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: var(--white) !important;
+}
+
+.story-timeline-card p {
+  color: var(--red-pale);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Dark theme couple card */
+.story-couple-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+
+.story-couple-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--red-bright);
+  transform: scale(1.02);
+}
+
+.story-couple-icon {
+  font-size: 4rem;
+  color: var(--red-bright);
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 5px 15px rgba(196, 30, 58, 0.5));
+}
+
+.story-couple-names {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: var(--white);
+  margin: 1rem 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.story-couple-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--red-pale);
+  margin: 1rem 0 1.5rem;
+}
+
+/* Dark theme badges */
+.badge-dark {
+  background: rgba(196, 30, 58, 0.3);
+  color: var(--white);
+  border: 1px solid var(--red-bright);
+  padding: 0.6rem 1.4rem;
+  border-radius: 30px;
+  font-family: 'Cormorant', serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.badge-dark:hover {
+  background: var(--red-bright);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(196, 30, 58, 0.4);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .story-main-card {
+    padding: 1.5rem;
+    margin: 0 0.5rem;
+  }
+  
+  .story-section-title {
+    font-size: 2.2rem;
+  }
+  
+  .story-couple-names {
+    font-size: 2rem;
+  }
+  
+  .story-main-card:hover {
+    transform: translateY(-5px) scale(1);
+  }
+}
   </style>
 </head>
 <body>
@@ -1190,59 +1437,67 @@
   <div class="container py-5">
 
     <!-- STORY -->
-    <section id="story" class="mb-5 py-5">
-      <div class="text-center mb-5">
-        <p class="section-eyebrow reveal">Chapter One</p>
-        <h2 class="section-title reveal delay-1">Our Love Story</h2>
-        <div class="divider-custom reveal delay-2"></div>
-        <p class="section-subtitle reveal delay-3">A journey of promise &amp; devotion</p>
-      </div>
-      <div class="row g-5 align-items-center">
-        <div class="col-lg-6 reveal-left">
-          <div class="card-elegant p-4 p-lg-5">
-            <div class="timeline-card">
-              <div><span class="icon"><i class="bi bi-heart-fill"></i></span> <strong>How we met</strong></div>
-              <p class="mb-0 mt-2">Themba &amp; Nontokozo met through a beautiful connection. They are blessed with a baby girl, and he made a commitment to raise this gift with her.</p>
-            </div>
-            <div class="timeline-card">
-              <div><span class="icon"><i class="bi bi-cash-coin"></i></span> <strong>Damages Paid &amp; Lobola Negotiation</strong></div>
-              <p class="mb-0 mt-2">Lobola negotiations started with a promise to come back. A commitment was made, and the journey began.</p>
-            </div>
-            <div class="timeline-card">
-              <div><span class="icon"><i class="bi bi-check-circle"></i></span> <strong>Lobola Negotiations · A Promise Kept</strong></div>
-              <p class="mb-0 mt-2">The promise was fulfilled. Lobola negotiations concluded with joy and unity between families.</p>
-            </div>
-            <div class="timeline-card" style="border-left-color: var(--red-bright);">
-              <div><span class="icon"><i class="bi bi-hourglass-split"></i></span> <strong>Umembeso</strong> <span class="badge-elegant ms-2">Buffering...</span></div>
-              <p class="mb-0 mt-2 fst-italic">The next chapter awaits.</p>
-            </div>
-            <div class="timeline-card" style="border-left-color: var(--red-bright);">
-              <div><span class="icon"><i class="bi bi-ring"></i></span> <strong>Umshado</strong> <span class="badge-elegant ms-2">Loading...</span></div>
-              <p class="mb-0 mt-2 fst-italic">The celebration continues.</p>
+    <!-- SPECTACULAR STORY SECTION -->
+<section class="story-section-wrapper">
+  <div class="story-bg"></div>
+  
+  <div class="container position-relative" style="z-index: 2;">
+    <div class="text-center mb-4 reveal">
+      <p class="section-eyebrow" style="color: var(--red-pale);">Chapter One</p>
+      <h2 class="story-section-title">Our Love Story</h2>
+      <div class="story-divider"></div>
+      <p class="story-section-subtitle">A journey of promise &amp; devotion</p>
+    </div>
+    
+    <div class="story-main-card reveal-scale">
+      <div class="row g-4 align-items-stretch">
+        
+        <!-- TIMELINE -->
+        <div class="col-lg-7">
+          <div class="story-timeline-card">
+            <div><span class="icon"><i class="bi bi-heart-fill"></i></span> <strong>How we met</strong></div>
+            <p class="mb-0 mt-2">Themba &amp; Nontokozo met through a beautiful connection that blossomed into a lifetime commitment. Their love story is one of dedication, growth, and shared dreams.</p>
+          </div>
+          
+          <div class="story-timeline-card">
+            <div><span class="icon"><i class="bi bi-cash-coin"></i></span> <strong>Damages Paid &amp; Lobola Negotiation</strong></div>
+            <p class="mb-0 mt-2">Lobola negotiations started with a promise to come back. A commitment was made, and the journey began with respect and honor for both families.</p>
+          </div>
+          
+          <div class="story-timeline-card">
+            <div><span class="icon"><i class="bi bi-check-circle"></i></span> <strong>Lobola Negotiations · A Promise Kept</strong></div>
+            <p class="mb-0 mt-2">The promise was fulfilled. Lobola negotiations concluded with joy and unity between families, celebrating the bond that brings them together.</p>
+          </div>
+          
+          <div class="story-timeline-card" style="border-left-color: var(--gold, #d4af37);">
+            <div><span class="icon"><i class="bi bi-hourglass-split"></i></span> <strong>Umembeso</strong> <span class="badge-dark ms-2 badge-breathing">Buffering...</span></div>
+            <p class="mb-0 mt-2 fst-italic">The next chapter awaits.</p>
+          </div>
+          
+          <div class="story-timeline-card" style="border-left-color: var(--gold, #d4af37);">
+            <div><span class="icon"><i class="bi bi-ring"></i></span> <strong>Umshado</strong> <span class="badge-dark ms-2 badge-breathing">Loading...</span></div>
+            <p class="mb-0 mt-2 fst-italic">The celebration continues.</p>
+          </div>
+        </div>
+        
+        <!-- COUPLE INFO -->
+        <div class="col-lg-5">
+          <div class="story-couple-card">
+            <i class="bi bi-heart-fill story-couple-icon"></i>
+            <h3 class="story-couple-names">Themba &amp; Nontokozo</h3>
+            <p class="story-couple-quote">"A promise kept, a love celebrated."</p>
+            <div class="d-flex flex-column gap-2 mt-3 w-100">
+              <span class="badge-dark">💍 Lobola 2026</span>
+              <span class="badge-dark">❤️ Forever &amp; Always</span>
+              <span class="badge-dark">📅 11 July 2026</span>
             </div>
           </div>
         </div>
-        <div class="col-lg-6 reveal-right">
-          <div class="card-elegant p-4 p-lg-5 text-center">
-            <!-- BABY CARTOON IMAGE -->
-            <div class="baby-cartoon-wrapper">
-              <img src="Images/c1.png"
-                   alt="Our little blessing"
-                   class="baby-cartoon" />
-              <p class="baby-caption">Blessed with our <span>little princess</span> 👶💕</p>
-            </div>
-
-            <i class="bi bi-people-fill" style="font-size: 3rem; color: var(--red);"></i>
-            <h4 class="mt-3" style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-style: italic; font-weight: 300; color: var(--red-deep);">Themba &amp; Nontokozo</h4>
-            <p class="fst-italic" style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--red);">"A promise kept, a love celebrated."</p>
-            <div class="d-flex justify-content-center gap-3 mt-4 flex-wrap">
-              <span class="badge-elegant">👶 Blessed with a girl</span>
-              <span class="badge-elegant">💍 Lobola 2026</span>
-            </div>
-          </div>
-        </div>
+        
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- FEATURE PHOTO -->
     <section class="mb-5 py-5">
@@ -1274,7 +1529,7 @@
   
   <div class="col-md-4 reveal delay-2">
     <div class="gallery-card">
-      <img src="Images/g5.jpeg" 
+      <img src="Images/g6.jpg" 
            alt="Moment 2" 
            class="gallery-img clickable-img" />
     </div>
