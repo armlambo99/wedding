@@ -1461,6 +1461,34 @@
     max-height: none !important;
   }
 }
+
+/* ============ REASON FIELD ANIMATION ============ */
+.reason-field {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+  margin-bottom: 0 !important;
+}
+
+.reason-field.visible {
+  max-height: 200px;
+  opacity: 1;
+  margin-bottom: 1rem !important;
+}
+
+.reason-field textarea {
+  resize: vertical;
+  min-height: 80px;
+  background: var(--red-ghost);
+}
+
+.reason-field textarea:focus {
+  background: var(--white);
+  border-color: var(--red);
+  box-shadow: 0 0 0 4px rgba(196, 30, 58, 0.15);
+  outline: none;
+}
   </style>
 </head>
 <body>
@@ -1674,7 +1702,7 @@
   
   <div class="col-md-6 reveal delay-2">
     <div class="gallery-card">
-      <img src="Images/g7.jpeg" 
+      <img src="Images/g8.png" 
            alt="Moment 5" 
            class="gallery-img clickable-img" />
     </div>
@@ -1775,48 +1803,238 @@
     </section>
 
     <!-- RSVP -->
-    <section id="rsvp" class="mb-5 py-5">
-      <div class="text-center mb-5">
-        <p class="section-eyebrow reveal">Your Presence</p>
-        <h2 class="section-title reveal delay-1">Kindly Respond</h2>
-        <div class="divider-custom reveal delay-2"></div>
-        <p class="section-subtitle reveal delay-3">Let us know if you will be joining us</p>
-      </div>
-      <div class="card-elegant p-4 p-lg-5 reveal">
-        <p class="text-center mb-4 fst-italic" style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--red);">Your presence is the greatest gift.</p>
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <form id="rsvpForm" onsubmit="return handleRSVP(event)">
-              <div class="mb-3">
-                <label class="form-label"><i class="bi bi-person me-2"></i>Full name</label>
-                <input type="text" class="form-control" id="fullName" placeholder="e.g. Thandi M." required>
-              </div>
-              <div class="mb-3">
-                <label class="form-label"><i class="bi bi-check-circle me-2"></i>Will you attend?</label>
-                <select class="form-select" id="attending">
-                  <option value="Will be there!">Will be there!</option>
-                  <option value="Sadly, can't make it">Sadly, can't make it</option>
-                </select>
-              </div>
-              <div class="mb-3">
-                <label class="form-label"><i class="bi bi-people me-2"></i>Number of guests</label>
-                <input type="number" class="form-control" id="guests" min="0" max="4" value="1">
-              </div>
-              <div class="mb-3">
-                <label class="form-label"><i class="bi bi-chat me-2"></i>Any dietary restrictions?</label>
-                <input type="text" class="form-control" id="diet" placeholder="e.g. Halal, vegetarian...">
-              </div>
-              <div class="mb-3">
-                <label class="form-label"><i class="bi bi-music-note me-2"></i>Your favourite song?</label>
-                <input type="text" class="form-control" id="song" placeholder="e.g. Jerusalema">
-              </div>
-              <button type="submit" class="btn-elegant w-100 mt-3"><span>Send RSVP <i class="bi bi-send ms-2"></i></span></button>
-              <div id="rsvpFeedback" class="mt-4 text-center" style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic;"></div>
-            </form>
+ <!-- RSVP -->
+<section id="rsvp" class="mb-5 py-5">
+
+  <div class="text-center mb-5">
+    <p class="section-eyebrow reveal">Your Presence</p>
+    <h2 class="section-title reveal delay-1">Kindly Respond</h2>
+    <div class="divider-custom reveal delay-2"></div>
+    <p class="section-subtitle reveal delay-3">
+      Let us know if you will be joining us
+    </p>
+  </div>
+
+
+  <div class="card-elegant p-4 p-lg-5 reveal">
+
+    <p class="text-center mb-4 fst-italic"
+    style="font-family:'Cormorant Garamond', serif; font-size:1.3rem; color:var(--red);">
+      Your presence is the greatest gift.
+    </p>
+
+
+    <div class="row justify-content-center">
+
+      <div class="col-lg-8">
+
+
+        <!-- NETLIFY FORM -->
+        <form 
+        id="rsvpForm"
+        name="rsvp"
+        method="POST"
+        data-netlify="true"
+        netlify>
+
+
+        <!-- Required for Netlify -->
+        <input type="hidden" name="form-name" value="rsvp">
+
+
+          <div class="mb-3">
+
+            <label class="form-label">
+            <i class="bi bi-person me-2"></i>
+            Full name
+            </label>
+
+
+            <input 
+            type="text"
+            class="form-control"
+            name="fullName"
+            id="fullName"
+            placeholder="e.g. Thandi M."
+            required>
+
           </div>
-        </div>
+
+
+
+          <div class="mb-3">
+
+            <label class="form-label">
+            <i class="bi bi-telephone me-2"></i>
+            Phone number
+            </label>
+
+
+            <input
+            type="tel"
+            class="form-control"
+            name="phone"
+            id="phone"
+            placeholder="e.g. 072 123 4567">
+
+          </div>
+
+
+
+
+          <div class="mb-3">
+
+            <label class="form-label">
+            <i class="bi bi-check-circle me-2"></i>
+            Will you attend?
+            </label>
+
+
+            <select 
+            class="form-select"
+            name="attending"
+            id="attending">
+
+
+              <option value="Will be there!">
+              Will be there!
+              </option>
+
+
+              <option value="Sadly, can't make it">
+              Sadly, can't make it
+              </option>
+
+
+            </select>
+
+
+          </div>
+
+
+
+
+
+          <!-- Reason -->
+          <div 
+          class="mb-3"
+          id="reasonField"
+          style="display:none;">
+
+
+            <label class="form-label">
+            <i class="bi bi-chat-dots me-2"></i>
+            Reason
+            </label>
+
+
+            <textarea
+            class="form-control"
+            name="reason"
+            id="reason"
+            rows="3"
+            placeholder="Let us know why you can't make it...">
+            </textarea>
+
+
+          </div>
+
+
+
+
+
+
+          <div 
+          class="mb-3"
+          id="guestsField">
+
+
+            <label class="form-label">
+            <i class="bi bi-people me-2"></i>
+            Number of guests
+            </label>
+
+
+            <input
+            type="number"
+            class="form-control"
+            name="guests"
+            id="guests"
+            min="0"
+            max="4"
+            value="1">
+
+
+          </div>
+
+
+
+
+
+
+          <div 
+          class="mb-3"
+          id="dietField">
+
+
+            <label class="form-label">
+            <i class="bi bi-chat me-2"></i>
+            Any dietary restrictions?
+            </label>
+
+
+            <input
+            type="text"
+            class="form-control"
+            name="diet"
+            id="diet"
+            placeholder="e.g. Halal, vegetarian...">
+
+
+          </div>
+
+
+
+
+
+
+          <button 
+          type="submit"
+          class="btn-elegant w-100 mt-3">
+
+
+          Send RSVP 
+          <i class="bi bi-send ms-2"></i>
+
+
+          </button>
+
+
+
+
+
+          <div 
+          id="rsvpFeedback"
+          class="mt-4 text-center"
+          style="
+          font-family:'Cormorant Garamond',serif;
+          font-size:1.3rem;
+          font-style:italic;">
+          </div>
+
+
+
+        </form>
+
+
+
       </div>
-    </section>
+
+    </div>
+
+  </div>
+
+</section>
 
     <!-- THANK YOU -->
     <div class="text-center mt-5 py-5">
@@ -1974,26 +2192,108 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-    // RSVP
-    function handleRSVP(e) {
-      e.preventDefault();
-      const name = document.getElementById('fullName').value.trim();
-      if (!name) {
-        document.getElementById('rsvpFeedback').innerHTML = '<span style="color: #c0392b;">Please enter your name.</span>';
-        return false;
+    // RSVP FUNCTIONALITY
+function toggleReasonField() {
+  const attending = document.getElementById('attending').value;
+  const reasonField = document.getElementById('reasonField');
+  const guestsField = document.getElementById('guestsField');
+  const dietField = document.getElementById('dietField');
+  const reasonInput = document.getElementById('reason');
+  
+  if (attending === "Sadly, can't make it") {
+    // Show reason field, hide guests & diet
+    reasonField.classList.add('visible');
+    reasonField.style.display = 'block';
+    guestsField.style.display = 'none';
+    dietField.style.display = 'none';
+  } else {
+    // Hide reason field, show guests & diet
+    reasonField.classList.remove('visible');
+    setTimeout(() => {
+      if (!reasonField.classList.contains('visible')) {
+        reasonField.style.display = 'none';
       }
-      const attending = document.getElementById('attending').value;
-      const guests = document.getElementById('guests').value;
-      const diet = document.getElementById('diet').value.trim() || 'none';
-      const song = document.getElementById('song').value.trim() || 'not specified';
-      document.getElementById('rsvpFeedback').innerHTML = `
-        <span style="color: var(--red-deep);">
-          <i class="bi bi-check-circle-fill me-2"></i>Thank you, ${name}!<br />
-          <small style="color: var(--red);">You're ${attending} with ${guests} guest(s) · Diet: ${diet} · Song: ${song}</small>
-        </span>
-      `;
-      return false;
+    }, 400);
+    guestsField.style.display = 'block';
+    dietField.style.display = 'block';
+  }
+}
+
+function handleRSVP(e) {
+  e.preventDefault();
+  
+  const form = document.getElementById('rsvpForm');
+  const name = document.getElementById('fullName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const attending = document.getElementById('attending').value;
+  const feedback = document.getElementById('rsvpFeedback');
+  
+  if (!name) {
+    feedback.innerHTML = '<span style="color: #c0392b;">Please enter your name.</span>';
+    return false;
+  }
+  
+  // Show loading state
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.innerHTML;
+  submitBtn.innerHTML = '<span>Sending... <i class="bi bi-hourglass-split ms-2"></i></span>';
+  submitBtn.disabled = true;
+  
+  // Collect form data
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+  
+  // Send via Formspree (sends to mlamboaaron0@gmail.com)
+  fetch('https://formspree.io/f/mlamboaaron0@gmail.com', {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
     }
+  }).then(response => {
+    if (response.ok) {
+      if (attending === "Sadly, can't make it") {
+        feedback.innerHTML = `
+          <span style="color: var(--red-deep);">
+            <i class="bi bi-heart-fill me-2"></i>Thank you, ${name}!<br />
+            <small style="color: var(--red);">We're sorry you can't make it. We'll miss you! ❤️</small>
+          </span>
+        `;
+      } else {
+        const guests = data.guests || '1';
+        const diet = data.diet || 'none';
+        feedback.innerHTML = `
+          <span style="color: var(--red-deep);">
+            <i class="bi bi-check-circle-fill me-2"></i>Thank you, ${name}!<br />
+            <small style="color: var(--red);">You're ${attending} with ${guests} guest(s) · Diet: ${diet}</small>
+          </span>
+        `;
+      }
+      form.reset();
+      toggleReasonField(); // Reset field visibility
+    } else {
+      throw new Error('Form submission failed');
+    }
+  }).catch(error => {
+    feedback.innerHTML = `
+      <span style="color: #c0392b;">
+        <i class="bi bi-exclamation-circle me-2"></i>Oops! Something went wrong.<br />
+        <small>Please try again or contact us directly.</small>
+      </span>
+    `;
+  }).finally(() => {
+    submitBtn.innerHTML = originalBtnText;
+    submitBtn.disabled = false;
+  });
+  
+  return false;
+}
+
+// Initialize form state
+document.addEventListener('DOMContentLoaded', () => {
+  toggleReasonField();
+});
+
 // SIMPLE MUSIC PLAYER FUNCTIONALITY
 const audio = document.getElementById('weddingAudio');
 const playPauseBtn = document.getElementById('playPauseBtn');
